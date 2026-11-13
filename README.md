@@ -229,10 +229,17 @@ This will create `dist/jsnes.min.js`.
 
 ### Standalone releases
 
-Prebuilt standalone players are available from the [V1 release](https://github.com/stonechs/jsnes/releases/tag/v1)
-and the [V2 release](https://github.com/stonechs/jsnes/releases/tag/v2). Download either HTML file and open it in a
-modern browser to load a local ROM. The V2 release includes a readable HTML file and a smaller Roadroller + BASE122
-HTML file; its ROM loader supports `.nes` and single-file LZMA/LZMA2 `.7z` archives (not ZIP files).
+The latest standalone player is [V4](https://github.com/stonechs/jsnes/releases/tag/v4). Download either build and open it in a modern browser to select a local ROM:
+
+- [Compact standalone HTML](https://github.com/stonechs/jsnes/releases/download/v4/jsnes-v4-roadroller-base122.html) (30,710 bytes; Roadroller O1 + BASE122).
+- [Readable standalone HTML](https://github.com/stonechs/jsnes/releases/download/v4/jsnes-v4-readable.html) (451,757 bytes).
+- [Build metadata and SHA-256](https://github.com/stonechs/jsnes/releases/download/v4/metadata.json).
+
+V4 is built from the repository's root `src/` and `example/` trees. Its committed input snapshot is in `dist/V4/source/`. The build bundles the emulator, turns the player HTML into a JavaScript writer, compiles the emulator/UI/ROM loader/player together with Closure ADVANCED, then runs Roadroller O1 and embeds the BASE122 payload and decoder in one HTML file. The readable build keeps the UI markup and inlines its scripts.
+
+The player accepts raw `.nes`, `.7z` archives containing one LZMA/LZMA2 file, and `.zip` archives containing exactly one `.nes` entry using stored or Deflate compression. ROMs are limited to 16 MiB and archive files to 64 MiB. ZIP64, encrypted, split, and multi-ROM ZIP files are unsupported; ZIP Deflate requires browser support for `DecompressionStream('deflate-raw')`. Build-level Closure, keyboard mapping, Roadroller decoder, and BASE122 checks passed. Browser ROM loading and gameplay were not tested for V4.
+
+Earlier standalone builds: [V3](https://github.com/stonechs/jsnes/releases/tag/v3), [V2](https://github.com/stonechs/jsnes/releases/tag/v2), and [V1](https://github.com/stonechs/jsnes/releases/tag/v1).
 
 To rebuild V2 on Windows, run `npm run build:v2`. This uses the
 frozen `dist/V2/source/jsnes.js` core and the current player/ROM loader in `example/`.
