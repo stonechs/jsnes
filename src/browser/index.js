@@ -118,10 +118,17 @@ export default class Browser {
 
   start() {
     this._frameTimer.start();
-    this._speakers.start();
+    this._speakers.start().catch((error) => {
+      console.error("Unable to initialize NES audio.", error);
+    });
     this._fpsInterval = setInterval(() => {
       debug(`FPS: ${this.nes.getFPS()}`);
     }, 1000);
+  }
+
+  /** Resume Web Audio after a user gesture when browser autoplay is blocked. */
+  resumeAudio() {
+    this._speakers.resume();
   }
 
   stop() {

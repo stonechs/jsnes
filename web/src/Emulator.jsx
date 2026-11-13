@@ -68,6 +68,10 @@ class Emulator extends Component {
   fitInParent() {
     this.browser.fitInParent();
   }
+
+  resumeAudio() {
+    this.browser?.resumeAudio();
+  }
 }
 
 Emulator.propTypes = {

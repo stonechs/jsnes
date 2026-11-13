@@ -12,6 +12,7 @@ class ROM {
   SINGLESCREEN_MIRRORING3 = 5;
   SINGLESCREEN_MIRRORING4 = 6;
   CHRROM_MIRRORING = 7;
+  SACHEN_L_MIRRORING = 8;
 
   constructor(nes) {
     this.nes = nes;

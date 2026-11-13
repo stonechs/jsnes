@@ -225,6 +225,15 @@ class PPU {
 
       this.defineMirrorRegion(0x2800, 0x2000, 0x400);
       this.defineMirrorRegion(0x2c00, 0x2400, 0x400);
+    } else if (mirroring === this.nes.rom.SACHEN_L_MIRRORING) {
+      // Sachen L: the first three nametables share page 0; page 3 uses page 1.
+      this.ntable1[0] = 0;
+      this.ntable1[1] = 0;
+      this.ntable1[2] = 0;
+      this.ntable1[3] = 1;
+
+      this.defineMirrorRegion(0x2400, 0x2000, 0x400);
+      this.defineMirrorRegion(0x2800, 0x2000, 0x400);
     } else if (mirroring === this.nes.rom.SINGLESCREEN_MIRRORING) {
       // Single Screen mirroring
 
@@ -341,6 +350,11 @@ class PPU {
   // Sets this.frameEnded = true when VBlank fires (scanline 0, dot 1),
   // signaling the frame loop to break after the current instruction.
   advanceDots(dots) {
+    // Some boards clock IRQ counters from PPU address activity or PPU dots.
+    if (this.nes.mmap?.clockPpuDots) {
+      this.nes.mmap.clockPpuDots(this, dots);
+    }
+
     let finalCurX = this.curX + dots;
 
     // Fast path: skip dot-by-dot when no per-dot events can fire.
@@ -1010,6 +1024,9 @@ class PPU {
 
     // Invoke mapper latch:
     this.cntsToAddress();
+    if (this.firstWrite && this.nes.mmap.observe) {
+      this.nes.mmap.observe(this.vramAddress);
+    }
     if (this.vramAddress < 0x2000) {
       this.nes.mmap.latchAccess(this.vramAddress);
     }
@@ -1022,6 +1039,9 @@ class PPU {
 
     this.cntsToAddress();
     this.regsToAddress();
+    if (this.nes.mmap.observe) {
+      this.nes.mmap.observe(this.vramAddress);
+    }
 
     // If address is in range 0x0000-0x3EFF, return buffered values:
     if (this.vramAddress <= 0x3eff) {
@@ -1029,7 +1049,10 @@ class PPU {
 
       // Update buffered value:
       if (this.vramAddress < 0x2000) {
-        this.vramBufferedReadValue = this.vramMem[this.vramAddress];
+        const patternAddress = this.nes.mmap.patternAddress
+          ? this.nes.mmap.patternAddress(this.vramAddress)
+          : this.vramAddress;
+        this.vramBufferedReadValue = this.vramMem[patternAddress];
       } else {
         this.vramBufferedReadValue = this.mirroredLoad(this.vramAddress);
       }
@@ -1077,6 +1100,9 @@ class PPU {
     this.triggerRendering();
     this.cntsToAddress();
     this.regsToAddress();
+    if (this.nes.mmap.observe) {
+      this.nes.mmap.observe(this.vramAddress);
+    }
 
     if (this.vramAddress >= 0x2000) {
       // Mirroring is used.
@@ -1087,7 +1113,10 @@ class PPU {
       // CHR ROM at all, but some (e.g. TQROM/mapper 119) have both CHR ROM
       // and CHR RAM and allow writes to CHR RAM-mapped regions.
       if (this.nes.mmap.canWriteChr(this.vramAddress)) {
-        this.writeMem(this.vramAddress, value);
+        const patternAddress = this.nes.mmap.patternAddress
+          ? this.nes.mmap.patternAddress(this.vramAddress)
+          : this.vramAddress;
+        this.writeMem(patternAddress, value);
       }
 
       // Invoke mapper latch:
@@ -1336,6 +1365,13 @@ class PPU {
 
   renderBgScanline(bgbuffer, scan) {
     let baseTile = this.regS === 0 ? 0 : 256;
+    const mapper = this.nes.mmap;
+    if (mapper.bgHalf) {
+      const half = mapper.bgHalf(scan, this.cntVT);
+      if (half >= 0) {
+        baseTile = half << 8;
+      }
+    }
     // Base address for pattern table fetches (used for mapper latch triggers).
     // On real hardware, the PPU puts this address on its bus when fetching tile
     // data, and mappers like MMC2 monitor these fetches.
@@ -1707,7 +1743,10 @@ class PPU {
           let fineY = scan - dy;
           if (fineY < 0 || fineY >= 8) continue;
 
-          ptTile[tileIndex].render(
+          const mappedTileIndex = mmap.spriteTile
+            ? mmap.spriteTile(tileIndex, scan)
+            : tileIndex;
+          ptTile[mappedTileIndex].render(
             buffer,
             0,
             fineY,
@@ -1746,7 +1785,10 @@ class PPU {
             tileFineY = fineY - 8;
           }
 
-          ptTile[top + tileOffset].render(
+          const mappedTileIndex = mmap.spriteTile
+            ? mmap.spriteTile(top + tileOffset, scan)
+            : top + tileOffset;
+          ptTile[mappedTileIndex].render(
             buffer,
             0,
             tileFineY,
@@ -1819,7 +1861,9 @@ class PPU {
       // 8x8 sprites.
       let tIndexAdd = this.f_spPatternTable === 0 ? 0 : 256;
       if (y <= scan && y + 8 > scan && x < 256) {
-        t = mmap.getSpritePatternTile(sprTile + tIndexAdd);
+        let tileIndex = sprTile + tIndexAdd;
+        if (mmap.spriteTile) tileIndex = mmap.spriteTile(tileIndex, scan);
+        t = mmap.getSpritePatternTile(tileIndex);
         toffset = vertFlip ? 7 - (scan - y) : scan - y;
         toffset *= 8;
         return this._checkSpr0Pixels(t, toffset, x, horiFlip, scan, leftClip);
@@ -1830,13 +1874,15 @@ class PPU {
         toffset = vertFlip ? 15 - (scan - y) : scan - y;
 
         if (toffset < 8) {
-          t = mmap.getSpritePatternTile(
-            sprTile + (vertFlip ? 1 : 0) + ((sprTile & 1) !== 0 ? 255 : 0),
-          );
+          let tileIndex =
+            sprTile + (vertFlip ? 1 : 0) + ((sprTile & 1) !== 0 ? 255 : 0);
+          if (mmap.spriteTile) tileIndex = mmap.spriteTile(tileIndex, scan);
+          t = mmap.getSpritePatternTile(tileIndex);
         } else {
-          t = mmap.getSpritePatternTile(
-            sprTile + (vertFlip ? 0 : 1) + ((sprTile & 1) !== 0 ? 255 : 0),
-          );
+          let tileIndex =
+            sprTile + (vertFlip ? 0 : 1) + ((sprTile & 1) !== 0 ? 255 : 0);
+          if (mmap.spriteTile) tileIndex = mmap.spriteTile(tileIndex, scan);
+          t = mmap.getSpritePatternTile(tileIndex);
           toffset = vertFlip ? 15 - toffset : toffset - 8;
         }
         toffset *= 8;

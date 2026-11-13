@@ -50,8 +50,16 @@ class RunPage extends Component {
           </div>
           <div
             className="flex"
-            style={{ width: "200px", justifyContent: "flex-end" }}
+            style={{ width: "280px", justifyContent: "flex-end" }}
           >
+            <button
+              onClick={this.handleEnableSound}
+              className="border border-white text-white px-3 py-1 bg-transparent hover:bg-white hover:text-black mr-3 cursor-pointer disabled:opacity-50 disabled:cursor-default disabled:hover:bg-transparent disabled:hover:text-white"
+              disabled={!this.state.running}
+              title="Resume audio playback if the browser blocked autoplay"
+            >
+              Enable sound
+            </button>
             <button
               onClick={this.toggleControlsModal}
               className="border border-white text-white px-3 py-1 bg-transparent hover:bg-white hover:text-black mr-3 cursor-pointer disabled:opacity-50 disabled:cursor-default disabled:hover:bg-transparent disabled:hover:text-white"
@@ -203,6 +211,10 @@ class RunPage extends Component {
 
   handlePauseResume = () => {
     this.setState({ paused: !this.state.paused });
+  };
+
+  handleEnableSound = () => {
+    this.emulator?.resumeAudio();
   };
 
   layout = () => {
