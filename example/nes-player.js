@@ -80,14 +80,14 @@ muteButton.addEventListener("click", () => {
 });
 
 const keyButtons = {
-  KeyX: 0,
-  KeyZ: 1,
-  Space: 2,
-  Enter: 3,
-  ArrowUp: 4,
-  ArrowDown: 5,
-  ArrowLeft: 6,
-  ArrowRight: 7,
+  "KeyX": 0,
+  "KeyZ": 1,
+  "Space": 2,
+  "Enter": 3,
+  "ArrowUp": 4,
+  "ArrowDown": 5,
+  "ArrowLeft": 6,
+  "ArrowRight": 7,
 };
 
 for (const type of ["keydown", "keyup"]) {

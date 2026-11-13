@@ -1,0 +1,371 @@
+{
+  "version": "V4",
+  "buildInputs": {
+    "source": [
+      {
+        "name": "browser/frame-timer.js",
+        "sha256": "102b994ce903daf444fd2ea33f035075d992b4e8660a08f6ef6c99e83b350e4e"
+      },
+      {
+        "name": "browser/gamepad.js",
+        "sha256": "c236d1b56cd4f33f01c8ab0bc73578a0955f10ab64078a78b20844229a0b00cd"
+      },
+      {
+        "name": "browser/index.js",
+        "sha256": "5d6a88d2bcdfb36d32a4274a6d76130ba3c07b203a0471713fc995b55595a8d5"
+      },
+      {
+        "name": "browser/keyboard.js",
+        "sha256": "0fd7b41e9a69dc33fd7b245bf2a675a55787a366c49e0497318bb31558ca5be2"
+      },
+      {
+        "name": "browser/screen.js",
+        "sha256": "77002939e34b7a02b379b381bb3bfcc90fec583421644c4427a1ad36c56578e5"
+      },
+      {
+        "name": "browser/speakers.js",
+        "sha256": "de7d7d66c191cecff082e2c88fed594e324920310a1ab73f1a4a776fdf6113ad"
+      },
+      {
+        "name": "browser.d.ts",
+        "sha256": "d219fc4c26fdf91d65808408b829b00904be270ee91bcb5d0d223c4528192a14"
+      },
+      {
+        "name": "controller.d.ts",
+        "sha256": "4887862e8c4e1acd2782b40b5e0efa8dfb27f52a018eccd2b62498527baaf137"
+      },
+      {
+        "name": "controller.js",
+        "sha256": "4d0932cb651db3bf5f9d7fffe0bb41c632ff32e9b0ee7b364da07fd2803c2c6a"
+      },
+      {
+        "name": "cpu.js",
+        "sha256": "ade25ff5d4151c5a2a682230d56c6669b66d31e9504720a068e32656ff5e60c1"
+      },
+      {
+        "name": "gamegenie.d.ts",
+        "sha256": "fad88adc8428e3138caa66e052ceca7dc8985c2e525bce965e5d7ff51acb3958"
+      },
+      {
+        "name": "gamegenie.js",
+        "sha256": "f815439044317bedf4256ab86536e8d44a8bad95699f3d7753fbc1048189e47e"
+      },
+      {
+        "name": "index.js",
+        "sha256": "ed93188201b9aa898566b761d2825e87a28c2930b488ce85ed3b52cf4ebaa15b"
+      },
+      {
+        "name": "mappers/index.js",
+        "sha256": "2755b1eb954e80a845095957693c6edafb8168a433693a875404263f295a9a30"
+      },
+      {
+        "name": "mappers/mapper0.js",
+        "sha256": "38e4ddf85b6441ba9ad1fd5bd1e9424fb5b1d9c42f177daf626bf8ea3632db6a"
+      },
+      {
+        "name": "mappers/mapper1.js",
+        "sha256": "d85c827671dab80ec607a66bafc03f1edd2a06307e18d66b3e897b73381045b6"
+      },
+      {
+        "name": "mappers/mapper11.js",
+        "sha256": "86121a37a4c37f521de3e8fad497ce9940f59920ad424c6ec50c58268b323145"
+      },
+      {
+        "name": "mappers/mapper118.js",
+        "sha256": "ae251dd2d1873e02df49245edeba14b196b97640a2d3be45d4f1747408746dbe"
+      },
+      {
+        "name": "mappers/mapper119.js",
+        "sha256": "ad1f41cbf4cb8ebdecfd4bff18eefb98baa2cd3b1ea5bd334972efbc397254e6"
+      },
+      {
+        "name": "mappers/mapper140.js",
+        "sha256": "40e4d3623be44ed40b1ebf4dddb1c7d702df13ce950e13a8b0b3bc01ef29704b"
+      },
+      {
+        "name": "mappers/mapper163.js",
+        "sha256": "b45aae2799fbf08456a74d40b1db8b25492771d60be10575cd856e3064a22f04"
+      },
+      {
+        "name": "mappers/mapper180.js",
+        "sha256": "67a30e8eef846bb5487967603235ac1f0145d0d7bc37620776f513fe0c097d2e"
+      },
+      {
+        "name": "mappers/mapper2.js",
+        "sha256": "28e2edc94cd3c1484e79d96f84d177768f9f256d58ada84bceeef55f0f3e33c2"
+      },
+      {
+        "name": "mappers/mapper227.js",
+        "sha256": "7bddd165626c761b34f25ee52d58a0fc5a9376a92cd7db97b6cdf8e2a220d4bf"
+      },
+      {
+        "name": "mappers/mapper240.js",
+        "sha256": "b60dff8d06cb786e3469ca6c6a4f5fececd69c5c36ab221d044d204c875e5d0d"
+      },
+      {
+        "name": "mappers/mapper241.js",
+        "sha256": "28a5ba1ca24d009767597a8801497ead6898d80e4da9700d42871b3d75c00bc5"
+      },
+      {
+        "name": "mappers/mapper243.js",
+        "sha256": "bc39685fff9979ecaa6da13d7ca2b4656f0eca05f9c2b8b8c33bef44a1dc3200"
+      },
+      {
+        "name": "mappers/mapper3.js",
+        "sha256": "f796d6f858d909a6ea6484aaff8313e157160f06dc6ff7e47a30d46277b25f23"
+      },
+      {
+        "name": "mappers/mapper34.js",
+        "sha256": "70fbf3e3609f97a3fbaf10c4ee1d971b4b42ff7431cf5bb01a3170f14c069ab0"
+      },
+      {
+        "name": "mappers/mapper38.js",
+        "sha256": "5df5664b94b5543fc6f72fd4208042a6cd03c1ac2ce0cd59f58302d515009d4b"
+      },
+      {
+        "name": "mappers/mapper4.js",
+        "sha256": "8b454446c6549948b740964b3858cb49c6f1727f98bc04aec17fb89c1f153947"
+      },
+      {
+        "name": "mappers/mapper5.js",
+        "sha256": "967f0b720ea4aff97be20d4c3fb0168f8dc2e9d0b726ad3ec3d706d378853d71"
+      },
+      {
+        "name": "mappers/mapper66.js",
+        "sha256": "28be4a550ac690129d400b32c8546b09aadb96b16b32f4da0e8814ac550de331"
+      },
+      {
+        "name": "mappers/mapper7.js",
+        "sha256": "ff333b64baaf5706a4957e633d17ef8c1bd088bd1354e03779bd936edbef82bf"
+      },
+      {
+        "name": "mappers/mapper71.js",
+        "sha256": "4b538fd881d133f27b01d6c03afe4ffb2b543b74a00115d222ad7b302bd1b8ae"
+      },
+      {
+        "name": "mappers/mapper74.js",
+        "sha256": "6c2c89aaa3fa6cf2d5805c9ef9cb308dd0bd6391e34f6cfc093c6d3ab2b0a54c"
+      },
+      {
+        "name": "mappers/mapper76.js",
+        "sha256": "a65fe219c7fd6386ebde7a918a640aec61c4745e461b92a0c2addaffbf0e2377"
+      },
+      {
+        "name": "mappers/mapper79.js",
+        "sha256": "c4d51b07d722a13a44d3e2f2b6493d80256cd8bd0604c9086202967478dd07da"
+      },
+      {
+        "name": "mappers/mapper9.js",
+        "sha256": "e2b7b05be30e53f16d4b14ac7f6e31c26d679bceb57a4259950d135f4a13dd8e"
+      },
+      {
+        "name": "mappers/mapper91.js",
+        "sha256": "cdfba02347b4244b6223ba93c020ec86b2de5e398cec806d3f86112fcdbd32a9"
+      },
+      {
+        "name": "mappers/mapper94.js",
+        "sha256": "53ed1aab9cd50d1e5245890daff5b674ebcfbd8d746208a627fc103ce72b8c75"
+      },
+      {
+        "name": "nes.d.ts",
+        "sha256": "a8650a9cdb2a3801d1f1d797941af580f9622fc6709bb111e5ff04919d4fc1fb"
+      },
+      {
+        "name": "nes.js",
+        "sha256": "dabd7309c38085fd554544da03b9db34f90d6da3f0379e92ae89b1c76a2d4d20"
+      },
+      {
+        "name": "papu/channel-dm.js",
+        "sha256": "68089047191a0283b492d88b5215f4e51739f2596e95443e43f50e709297cba6"
+      },
+      {
+        "name": "papu/channel-noise.js",
+        "sha256": "60ffc85a6413b69bde228ab65542ed60f30cb0f63071558f774f5c61ecfed821"
+      },
+      {
+        "name": "papu/channel-square.js",
+        "sha256": "52db0b9994dc8cb19cdbdbe41922b4d72072730f96078f689a694f4cd6cd49a8"
+      },
+      {
+        "name": "papu/channel-triangle.js",
+        "sha256": "b385d45d3e90cd5fe8f7dd288d5abf4bc2f2ebf171d4dab17ba150c176470941"
+      },
+      {
+        "name": "papu/index.js",
+        "sha256": "fe8ede3f3b6709edb503cead3a0def1a1d1ba25cb8fad744e3b5bf25d129ea6b"
+      },
+      {
+        "name": "ppu/index.js",
+        "sha256": "1b12e40fffeccb73355f6b5680ea4db102f5836a47a922bb73c88c98ea268806"
+      },
+      {
+        "name": "ppu/nametable.js",
+        "sha256": "be0497b4ebd66eae910171637d153510f36b7636147a2719d67d2c6b7cdbfe22"
+      },
+      {
+        "name": "ppu/palette-table.js",
+        "sha256": "ca2c6576581df5a9e19b9371e89db9adb8d1a16730f77260ab010f852cb9ae36"
+      },
+      {
+        "name": "rom.js",
+        "sha256": "924713c1bc434a33c971fb5af5e8b63fd47558d0a26f289f72f35182f4d63136"
+      },
+      {
+        "name": "tile.js",
+        "sha256": "027d675eaac4a26db0074e6090c17c843a37bfd5dc3d945fbcc773080fbce110"
+      },
+      {
+        "name": "utils.js",
+        "sha256": "61a1c24824626edd5191cccbe7acec223d78f7eab861db866a31a07fe70ef8c6"
+      }
+    ],
+    "example": [
+      {
+        "name": "base122.mjs",
+        "sha256": "546f676109037861f968b7982bacecc8d4bf71b001ebd8c9b82b378bbe05412d"
+      },
+      {
+        "name": "build-standalone.mjs",
+        "sha256": "040f359f4e4fe3714adc9e15765bd7cf47cd264ae8f478c27edec01ad7fad1cb"
+      },
+      {
+        "name": "build-v2.mjs",
+        "sha256": "a4ffd738eceaf8a4434bddd14d4b48f9be9e9c95a056e99df7782611cfb28f5e"
+      },
+      {
+        "name": "build-v3.mjs",
+        "sha256": "2335eb96d308e357f580cee781bdad5887bd991d61cded80871d1e25fc83e652"
+      },
+      {
+        "name": "build-v4.mjs",
+        "sha256": "7b28e12552f22fbc59b5fc9115acabe0d5862b868dc4331f0e7c0bc2ca9a0639"
+      },
+      {
+        "name": "nes-embed.html",
+        "sha256": "7b1299b122a6aaa05960ea5191ea65353f3aab6d33dfe9148d58aa927cf4c2a5"
+      },
+      {
+        "name": "nes-player.html",
+        "sha256": "6701ed6678e934399439d66b8b7c0c67762cf46fd9fdf65396a4e4719c8fd0ce"
+      },
+      {
+        "name": "nes-player.js",
+        "sha256": "abdcc84bd3429718438f2fbc24e81d02e53f8bade85b9f862f4ee68dd6ff6c9b"
+      },
+      {
+        "name": "nes-readable.html",
+        "sha256": "4f541c2bca6eceb3f9f4b336d0bd8d1c0f1dbbb1f302b68a1464be176a40d135"
+      },
+      {
+        "name": "README.md",
+        "sha256": "9555929d904577911a6a7158f6b13fafedea45aa22d61e8ba863a063efc82d3b"
+      },
+      {
+        "name": "rom-loader.js",
+        "sha256": "9f859934c46c0ad12c89efa5f76adea0bc9e2270a0f9416f25f2f76f20784ea8"
+      }
+    ]
+  },
+  "sourceSnapshot": "dist/V4/source/{src,example}; byte-for-byte copies of build inputs",
+  "pipeline": [
+    "Webpack bundle from root /src (unminified)",
+    "Convert example/nes-player.html markup to a document.write JavaScript script",
+    "Compile emulator bundle, UI writer, ROM loader and player together with Closure ADVANCED",
+    "Roadroller JS/eval compression",
+    "Pack Roadroller six-bit stream into bytes and encode with BASE122",
+    "Inline Base122 decoder and payload into runnable HTML"
+  ],
+  "compiler": "Closure Compiler 20261108.0.0",
+  "closurePassesPerBuild": {
+    "applicationBundle": 1,
+    "base122Loader": 1,
+    "applicationIsNotRecompiled": true
+  },
+  "roadroller": "2.1.0",
+  "roadrollerOptimizationSearch": "O1",
+  "roadrollerOptimizationElapsedMs": 12234,
+  "roadrollerOptimizationEstimateBytes": 26435,
+  "roadrollerOptimizationBest": {
+    "dynamicModels": 1,
+    "numAbbreviations": 32,
+    "sparseSelectors": [
+      0,
+      1,
+      3,
+      6,
+      7,
+      13,
+      57,
+      103,
+      284,
+      321,
+      354,
+      399
+    ]
+  },
+  "roadrollerStartingParameters": {
+    "modelRecipBaseCount": 50,
+    "modelMaxCount": 4,
+    "dynamicModels": 0,
+    "numAbbreviations": 0,
+    "sparseSelectors": [
+      0,
+      1,
+      3,
+      6,
+      7,
+      13,
+      25,
+      57,
+      103,
+      321,
+      327,
+      399
+    ],
+    "recipLearningRate": 1500
+  },
+  "roadrollerParameters": {
+    "modelRecipBaseCount": 50,
+    "modelMaxCount": 4,
+    "dynamicModels": 1,
+    "numAbbreviations": 32,
+    "sparseSelectors": [
+      0,
+      1,
+      3,
+      6,
+      7,
+      13,
+      57,
+      103,
+      284,
+      321,
+      354,
+      399
+    ],
+    "recipLearningRate": 1500
+  },
+  "sizesBytes": {
+    "webpackCore": 429507,
+    "combinedClosureInput": 452010,
+    "closureAdvancedJs": 105823,
+    "readableHtml": 451757,
+    "roadrollerBinary": 25851,
+    "base122Payload": 29544,
+    "base122LoaderJs": 1086,
+    "compactHtml": 30710
+  },
+  "sha256": {
+    "readableHtml": "7356893273278fbefa83cd0d0675aded449a960f6e781f35b7dcee71ba74d4b8",
+    "compactHtml": "455f15042ae8d4ee179efbff7a34e8046c631730dd83c2c94eb53b08f75da54a",
+    "closureAdvancedJs": "7242e983e74eafde9ac53645eb809cf42a8d0a6c381413ec4dc8b9a770223600"
+  },
+  "checks": {
+    "roadrollerDecodeSyntax": "passed",
+    "base122RoundTrip": "passed",
+    "base122LoaderSyntax": "passed",
+    "closureAdvancedCompile": "passed",
+    "keyboardEventCodeKeysPreserved": "passed",
+    "browserRomSmokeTest": "not run"
+  }
+}

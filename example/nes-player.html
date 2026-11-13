@@ -10,7 +10,7 @@
     <style>
       * { box-sizing: border-box; }
       body { margin: 0; background: #111; color: #ddd; font: 14px system-ui, sans-serif; color-scheme: dark; }
-      main { height: 100dvh; min-height: 0; overflow: hidden; }
+      main { height: 100dvh; overflow: hidden; }
       .game { height: 100dvh; display: grid; grid-template-columns: clamp(210px, 26vw, 232px) minmax(0, 1fr) clamp(210px, 26vw, 232px); max-width: 1400px; margin: auto; gap: 2px; }
       .pad { position: relative; }
       .dpad { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); display: grid; grid-template: ". up ." "left . right" ". down ." / 1fr 1fr 1fr; gap: .7px; }
@@ -20,14 +20,13 @@
       .dpad [data-button="7"] { grid-area: right; transform: translateX(-15%); }
       .touch { width: clamp(63.36px, 7.92vw, 77.44px); height: clamp(63.36px, 7.92vw, 77.44px); padding: 0; border: 1px solid #777; border-radius: 10px; background: #292929; color: #eee; font-weight: 700; font-size: 22px; touch-action: none; user-select: none; -webkit-user-select: none; }
       .touch[aria-pressed="true"] { background: #666; border-color: #bbb; }
-      .system { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); display: flex; gap: 12px; margin: 0; }
+      .system { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); display: flex; gap: 12px; }
       .system .touch { width: 36px; height: 36px; border-radius: 6px; font-size: 11px; }
       .tools { position: absolute; top: 4px; left: 50%; transform: translateX(-50%); display: grid; justify-items: center; gap: 5px; width: calc(100% - 8px); }
       .tools input { width: 100%; min-width: 0; font-size: 12px; }
       .tools nav { display: flex; gap: 8px; }
       .tools nav button { padding: 6px 10px; font: inherit; }
       .status, .side-note { max-width: 100%; font-size: 12px; line-height: 1.4; text-align: center; overflow-wrap: anywhere; }
-      .status { display: block; }
       .display { min-width: 0; min-height: 0; display: grid; place-items: center; }
       .display canvas { display: block; max-width: 100%; max-height: 100%; background: #000; image-rendering: pixelated; }
       .actions { position: absolute; left: 4px; top: 50%; transform: translateY(-50%); display: flex; gap: 6px; }
@@ -71,7 +70,7 @@
               <button id="mute" type="button" aria-pressed="false">静音</button>
               <button id="full" type="button">全屏</button>
             </nav>
-            <output class="status" id="status" role="status">选择 .nes、.zip 或 .7z ROM</output>
+            <output class="status" id="status">选择 .nes、.zip 或 .7z ROM</output>
           </div>
         </div>
         <div class="display" id="screen" aria-label="NES 游戏画面"></div>
