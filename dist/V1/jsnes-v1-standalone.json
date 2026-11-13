@@ -1,0 +1,12 @@
+{
+  "artifact": "jsnes-v1-standalone.html",
+  "bytes": 175874,
+  "sha256": "2e680a0aef70b9030e156e2a5d4bc30275c18a1eb4167b741033ed8008b60191",
+  "core": "JSNES 2.1.0 from dist/V1/jsnes.min.js",
+  "interface": "Adapted from jsnes-lite V013 mobile touch UI",
+  "romFormats": [
+    ".nes",
+    ".7z (single-file LZMA/LZMA2)"
+  ],
+  "externalResources": false
+}

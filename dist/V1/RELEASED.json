@@ -1,0 +1,20 @@
+﻿{
+    "version":  "V1",
+    "tag":  "v1",
+    "sourceCommit":  "4140abe4c8e0d7bf1e916b41172a4b362e9b2e88",
+    "githubRelease":  "https://github.com/stonechs/jsnes/releases/tag/v1",
+    "artifacts":  [
+                      {
+                          "name":  "jsnes-v1-standalone.html",
+                          "bytes":  175874,
+                          "sha256":  "2e680a0aef70b9030e156e2a5d4bc30275c18a1eb4167b741033ed8008b60191",
+                          "downloadUrl":  "https://github.com/stonechs/jsnes/releases/download/v1/jsnes-v1-standalone.html"
+                      },
+                      {
+                          "name":  "jsnes-v1-standalone-readable.html",
+                          "bytes":  460236,
+                          "sha256":  "fbaed84df9d15c7817d7973462ddcccbd2e4d1bf819ebcbf186f87938d4f2fdd",
+                          "downloadUrl":  "https://github.com/stonechs/jsnes/releases/download/v1/jsnes-v1-standalone-readable.html"
+                      }
+                  ]
+}
