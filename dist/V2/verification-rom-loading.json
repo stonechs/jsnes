@@ -1,0 +1,102 @@
+[
+  {
+    "artifact": "jsnes-v2-readable.html",
+    "results": [
+      {
+        "file": "croom.nes",
+        "status": "croom.nes",
+        "loaded": {
+          "bytes": 24592,
+          "hash": 3999235787
+        },
+        "frames": 12,
+        "frameHash": 3589632790
+      },
+      {
+        "file": "lj65.nes",
+        "status": "lj65.nes",
+        "loaded": {
+          "bytes": 24592,
+          "hash": 3764873005
+        },
+        "frames": 12,
+        "frameHash": 3173785507
+      },
+      {
+        "file": "lzma.7z",
+        "status": "lzma.7z",
+        "loaded": {
+          "bytes": 32784,
+          "hash": 4268699193
+        },
+        "frames": 12,
+        "frameHash": 3219830213
+      },
+      {
+        "file": "lzma2.7z",
+        "status": "lzma2.7z",
+        "loaded": {
+          "bytes": 32784,
+          "hash": 4268699193
+        },
+        "frames": 12,
+        "frameHash": 3219830213
+      }
+    ],
+    "invalidFiles": "passed",
+    "recovery": "passed",
+    "mute": "passed",
+    "pageErrors": [],
+    "networkRequests": []
+  },
+  {
+    "artifact": "jsnes-v2-roadroller-base122.html",
+    "results": [
+      {
+        "file": "croom.nes",
+        "status": "croom.nes",
+        "loaded": {
+          "bytes": 24592,
+          "hash": 3999235787
+        },
+        "frames": 12,
+        "frameHash": 3589632790
+      },
+      {
+        "file": "lj65.nes",
+        "status": "lj65.nes",
+        "loaded": {
+          "bytes": 24592,
+          "hash": 3764873005
+        },
+        "frames": 12,
+        "frameHash": 3173785507
+      },
+      {
+        "file": "lzma.7z",
+        "status": "lzma.7z",
+        "loaded": {
+          "bytes": 32784,
+          "hash": 4268699193
+        },
+        "frames": 12,
+        "frameHash": 3219830213
+      },
+      {
+        "file": "lzma2.7z",
+        "status": "lzma2.7z",
+        "loaded": {
+          "bytes": 32784,
+          "hash": 4268699193
+        },
+        "frames": 12,
+        "frameHash": 3219830213
+      }
+    ],
+    "invalidFiles": "passed",
+    "recovery": "passed",
+    "mute": "passed",
+    "pageErrors": [],
+    "networkRequests": []
+  }
+]

@@ -1,0 +1,92 @@
+{
+  "version": "V2",
+  "tag": "v2",
+  "finalizedAt": "2026-11-13T08:41:32.688Z",
+  "baseCommit": "4140abe4c8e0d7bf1e916b41172a4b362e9b2e88",
+  "githubRelease": "https://github.com/stonechs/jsnes/releases/tag/v2",
+  "artifacts": [
+    {
+      "name": "jsnes-v2-roadroller-base122.html",
+      "bytes": 37608,
+      "sha256": "f989af50a2fa53bef89e9772481999ab46aa9c60bc4dbfe74564e63bc55fa620",
+      "downloadUrl": "https://github.com/stonechs/jsnes/releases/download/v2/jsnes-v2-roadroller-base122.html"
+    },
+    {
+      "name": "jsnes-v2-readable.html",
+      "bytes": 449216,
+      "sha256": "d6a8481e198f55dc38e362f15c31111ab5611de91bff5da59e169629e1264b8a",
+      "downloadUrl": "https://github.com/stonechs/jsnes/releases/download/v2/jsnes-v2-readable.html"
+    },
+    {
+      "name": "metadata.json",
+      "bytes": 1039,
+      "sha256": "89575b89990d458bfde0ecfed5db2994fe0ad1335108dd913e445b406ad7d865",
+      "downloadUrl": "https://github.com/stonechs/jsnes/releases/download/v2/metadata.json"
+    }
+  ],
+  "releaseFiles": [
+    {
+      "name": "SHA256SUMS",
+      "bytes": 268,
+      "sha256": "6fe63b1694256438ba220ee635a32f03def5a21d99cd25c41c8499bcd787b1cb"
+    },
+    {
+      "name": "README.md",
+      "bytes": 2939,
+      "sha256": "61d4607f4a08baad0f909bd5dc3a57f632b820ce38bc0d76186736692e8a47d4"
+    },
+    {
+      "name": "verification-rom-loading.json",
+      "bytes": 2133,
+      "sha256": "923b8a64760b334746ee7d89d2183b66850b098aed81f743c6c31736ed4b1935"
+    },
+    {
+      "name": "source/jsnes.js",
+      "bytes": 429550,
+      "sha256": "d658ec7a48dac06d494afab1815c143219fe5886ad4102f5d84450fe7aa2fe68"
+    }
+  ],
+  "buildInputs": [
+    {
+      "name": "example/base122.mjs",
+      "sha256": "546f676109037861f968b7982bacecc8d4bf71b001ebd8c9b82b378bbe05412d"
+    },
+    {
+      "name": "example/build-v2.mjs",
+      "sha256": "a4ffd738eceaf8a4434bddd14d4b48f9be9e9c95a056e99df7782611cfb28f5e"
+    },
+    {
+      "name": "example/nes-player.html",
+      "sha256": "48716efbd7b2eff97c4270354b29cff07d4573414616899a2bcb09f29a4133e0"
+    },
+    {
+      "name": "example/nes-player.js",
+      "sha256": "d671b7a676f696de0f17ab9ef1e61a2477e07e3ab6a7f320f9169c19c3f197aa"
+    },
+    {
+      "name": "example/rom-loader.js",
+      "sha256": "e7b337c740be6120b13de11181327954bd59f10fec32d53100ca72d626e5e2ae"
+    },
+    {
+      "name": "package.json",
+      "sha256": "99a2cf8dd3e9b12927d997fcbe8ca1793c71fa28b1e375ee65e23376a295b5b6"
+    },
+    {
+      "name": "package-lock.json",
+      "sha256": "d07a08471021feb4399909b798ae0bf34c857936a752a26b6032dc5e396ea907"
+    }
+  ],
+  "verification": {
+    "base122RoundTrip": "passed",
+    "fullPageRoundTrip": "passed",
+    "browser": "Edge, file://, offline, two NES files and LZMA/LZMA2 archives, 12 frames per case",
+    "nodeTests": {
+      "passed": 583,
+      "skipped": 29,
+      "failed": 0
+    },
+    "typecheck": "passed",
+    "repositoryFormatting": "75 existing files fail npm test formatting check; functional suite run independently",
+    "newBuildScriptFormatting": "passed"
+  }
+}

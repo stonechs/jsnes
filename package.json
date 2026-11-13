@@ -26,6 +26,7 @@
   "type": "module",
   "scripts": {
     "build": "webpack",
+    "build:v2": "node example/build-v2.mjs",
     "typecheck": "tsc --noEmit",
     "test": "npm run typecheck && prettier --check '**/*.{js,jsx,css}' && node --test ./test/*.spec.js",
     "test:watch": "node --test --watch ./test/*.spec.js",
@@ -41,11 +42,15 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-webpack-plugin": "^6.0.0",
     "prettier": "^3.6.2",
+    "roadroller": "2.1.0",
     "terser-webpack-plugin": "^5.3.10",
     "typescript": "^6.0.2",
     "webpack": "^5.100.2",
     "webpack-cli": "^7.0.2",
     "wrangler": "^4.92.0"
+  },
+  "optionalDependencies": {
+    "google-closure-compiler-windows": "20261108.0.0"
   },
   "overrides": {
     "eslint-webpack-plugin": {

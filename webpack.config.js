@@ -16,7 +16,8 @@ export default {
     libraryTarget: "umd",
     globalObject: "globalThis",
     umdNamedDefine: true,
-    clean: true,
+    // Keep finalized standalone releases when rebuilding the library bundle.
+    clean: { keep: /^V\d+(?:[\\/]|$)/ },
   },
   module: {},
   optimization: {

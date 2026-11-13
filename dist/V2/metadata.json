@@ -1,0 +1,42 @@
+{
+  "pipeline": [
+    "Closure SIMPLE: core, ROM reader and UI in one scope",
+    "Closure ADVANCED: full-page writer",
+    "Roadroller JS/eval",
+    "Roadroller six-bit stream packed to bytes, BASE122 encoded",
+    "Raw BASE122 HTML attribute plus decoder"
+  ],
+  "closure": "20261108.0.0",
+  "roadroller": "2.1.0",
+  "parameters": {
+    "modelRecipBaseCount": 50,
+    "modelMaxCount": 4,
+    "dynamicModels": 0,
+    "numAbbreviations": 0,
+    "sparseSelectors": [
+      0,
+      1,
+      3,
+      6,
+      7,
+      13,
+      25,
+      57,
+      103,
+      321,
+      327,
+      399
+    ],
+    "recipLearningRate": 1500
+  },
+  "readableBytes": 449216,
+  "closureJsBytes": 155703,
+  "closurePageOutputBytes": 162037,
+  "roadrollerBinaryBytes": 31981,
+  "base122PayloadBytes": 36550,
+  "finalHtmlBytes": 37608,
+  "sha256": "f989af50a2fa53bef89e9772481999ab46aa9c60bc4dbfe74564e63bc55fa620",
+  "base122RoundTrip": "passed",
+  "fullPageRoundTrip": "passed",
+  "payloadEmbedding": "raw HTML attribute; no payload substitution or JS escapes"
+}

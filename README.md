@@ -227,6 +227,17 @@ To build a distribution:
 
 This will create `dist/jsnes.min.js`.
 
+For the Windows V2 standalone files, run `npm run build:v2`. This uses the
+frozen `dist/V2/source/jsnes.js` core and the current player/ROM loader in `example/`.
+It writes a readable HTML and `jsnes-v2-roadroller-base122.html` to `dist/V2/`.
+The core, ROM reader and UI share one scope and pass through Closure SIMPLE;
+the full-page writer passes through Closure ADVANCED and Roadroller. Roadroller's
+compressed stream is packed into bytes, BASE122 encoded, and embedded literally
+in an HTML attribute. The build checks undefined variables and compares the
+decoded page with the compiler output. Finalized version directories are guarded.
+The finalized V2 downloads and checksums are available in the
+[V2 release](https://github.com/stonechs/jsnes/releases/tag/v2).
+
 ## Running tests
 
     $ npm test
