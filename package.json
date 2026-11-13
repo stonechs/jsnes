@@ -33,9 +33,7 @@
     "test": "npm run typecheck && prettier --check '**/*.{js,jsx,css}' && node --test ./test/*.spec.js",
     "test:watch": "node --test --watch ./test/*.spec.js",
     "prepublishOnly": "npm run build",
-    "format": "prettier --write '**/*.{js,jsx,css}'",
-    "deploy": "wrangler deploy",
-    "preview": "wrangler dev"
+    "format": "prettier --write '**/*.{js,jsx,css}'"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -48,8 +46,7 @@
     "terser-webpack-plugin": "^5.3.10",
     "typescript": "^6.0.2",
     "webpack": "^5.100.2",
-    "webpack-cli": "^7.0.2",
-    "wrangler": "^4.92.0"
+    "webpack-cli": "^7.0.2"
   },
   "optionalDependencies": {
     "google-closure-compiler-windows": "20261108.0.0"

@@ -78,8 +78,6 @@ function Emulator({ romData }) {
 }
 ```
 
-A full-featured React frontend is available in the `web/` directory of this repository.
-
 ### Node.js / custom integration
 
 If you need lower-level control (custom rendering, audio handling, or running in Node.js), use the `NES` class directly:
