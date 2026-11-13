@@ -128,7 +128,7 @@ var nes = new jsnes.NES(options);
 
 | Option | Type | Description |
 |--------|------|-------------|
-| `onFrame` | `function(frameBuffer)` | Called at the end of each frame with a 256×240 pixel buffer (Int32Array of ARGB values). |
+| `onFrame` | `function(frameBuffer)` | Called at the end of each frame with a 256 × 240 pixel buffer (`Int32Array` of ARGB values). |
 | `onAudioSample` | `function(left, right)` | Called for each audio sample with left/right channel values (-1.0 to 1.0). |
 | `onStatusUpdate` | `function(status)` | Called with status messages (e.g. "Ready to load a ROM."). |
 | `onBatteryRamWrite` | `function(address, value)` | Called when battery-backed SRAM is written. Use this to persist save data. |
@@ -201,8 +201,8 @@ When using `jsnes.Browser`, the following keyboard bindings are set up by defaul
 | Up / Down / Left / Right | Arrow keys | Numpad 8 / 2 / 4 / 6 |
 | A | X | Numpad 7 |
 | B | Z (or Y) | Numpad 9 |
-| Turbo A | S | — |
-| Turbo B | A | — |
+| Turbo A | S | Not mapped |
+| Turbo B | A | Not mapped |
 | Start | Enter | Numpad 1 |
 | Select | Right Ctrl | Numpad 3 |
 
@@ -227,7 +227,14 @@ To build a distribution:
 
 This will create `dist/jsnes.min.js`.
 
-For the Windows V2 standalone files, run `npm run build:v2`. This uses the
+### Standalone releases
+
+Prebuilt standalone players are available from the [V1 release](https://github.com/stonechs/jsnes/releases/tag/v1)
+and the [V2 release](https://github.com/stonechs/jsnes/releases/tag/v2). Download either HTML file and open it in a
+modern browser to load a local ROM. The V2 release includes a readable HTML file and a smaller Roadroller + BASE122
+HTML file; its ROM loader supports `.nes` and single-file LZMA/LZMA2 `.7z` archives (not ZIP files).
+
+To rebuild V2 on Windows, run `npm run build:v2`. This uses the
 frozen `dist/V2/source/jsnes.js` core and the current player/ROM loader in `example/`.
 It writes a readable HTML and `jsnes-v2-roadroller-base122.html` to `dist/V2/`.
 The core, ROM reader and UI share one scope and pass through Closure SIMPLE;
@@ -235,8 +242,7 @@ the full-page writer passes through Closure ADVANCED and Roadroller. Roadroller'
 compressed stream is packed into bytes, BASE122 encoded, and embedded literally
 in an HTML attribute. The build checks undefined variables and compares the
 decoded page with the compiler output. Finalized version directories are guarded.
-The finalized V2 downloads and checksums are available in the
-[V2 release](https://github.com/stonechs/jsnes/releases/tag/v2).
+The V2 release includes checksums and build metadata.
 
 ## Running tests
 
