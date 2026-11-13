@@ -231,7 +231,7 @@ The latest standalone player is [V4](https://github.com/stonechs/jsnes/releases/
 
 - [Compact standalone HTML](https://github.com/stonechs/jsnes/releases/download/v4/jsnes-v4-roadroller-base122.html) (30,710 bytes; Roadroller O1 + BASE122).
 - [Readable standalone HTML](https://github.com/stonechs/jsnes/releases/download/v4/jsnes-v4-readable.html) (451,757 bytes).
-- [Build metadata and SHA-256](https://github.com/stonechs/jsnes/releases/download/v4/metadata.json).
+- [Build metadata and SHA-256](https://github.com/stonechs/jsnes/blob/main/dist/V4/metadata.json).
 
 V4 is built from the repository's root `src/` and `example/` trees. Its committed input snapshot is in `dist/V4/source/`. The build bundles the emulator, turns the player HTML into a JavaScript writer, compiles the emulator/UI/ROM loader/player together with Closure ADVANCED, then runs Roadroller O1 and embeds the BASE122 payload and decoder in one HTML file. The readable build keeps the UI markup and inlines its scripts.
 
@@ -247,7 +247,7 @@ the full-page writer passes through Closure ADVANCED and Roadroller. Roadroller'
 compressed stream is packed into bytes, BASE122 encoded, and embedded literally
 in an HTML attribute. The build checks undefined variables and compares the
 decoded page with the compiler output. Finalized version directories are guarded.
-The V2 release includes checksums and build metadata.
+The finalized `dist/V2/` directory in the repository retains checksums and build metadata.
 
 ## Running tests
 
