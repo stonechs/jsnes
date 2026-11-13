@@ -1,0 +1,77 @@
+{
+  "pipeline": [
+    "Closure SIMPLE: core, ROM reader and UI in one scope",
+    "Closure ADVANCED: full-page writer",
+    "Roadroller JS/eval",
+    "Roadroller six-bit stream packed to bytes, BASE122 encoded",
+    "Raw BASE122 HTML attribute plus decoder"
+  ],
+  "closure": "20261108.0.0",
+  "roadroller": "2.1.0",
+  "romFormats": [
+    ".nes",
+    ".zip (single-ROM, stored/deflate)",
+    ".7z (single-file LZMA/LZMA2)"
+  ],
+  "parameters": {
+    "modelRecipBaseCount": 50,
+    "modelMaxCount": 4,
+    "dynamicModels": 0,
+    "numAbbreviations": 0,
+    "sparseSelectors": [
+      0,
+      1,
+      3,
+      6,
+      7,
+      13,
+      25,
+      57,
+      103,
+      321,
+      327,
+      399
+    ],
+    "recipLearningRate": 1500
+  },
+  "readableBytes": 451826,
+  "closureJsBytes": 157357,
+  "closurePageOutputBytes": 163710,
+  "roadrollerBinaryBytes": 32495,
+  "base122PayloadBytes": 37139,
+  "finalHtmlBytes": 38197,
+  "sha256": "1f0210278ab52baaffd7564571cea81defac360e9c916a03810860aa9ff1d294",
+  "base122RoundTrip": "passed",
+  "fullPageRoundTrip": "passed",
+  "payloadEmbedding": "raw HTML attribute; no payload substitution or JS escapes",
+  "buildInputs": [
+    {
+      "name": "example/base122.mjs",
+      "sha256": "546f676109037861f968b7982bacecc8d4bf71b001ebd8c9b82b378bbe05412d"
+    },
+    {
+      "name": "example/build-v3.mjs",
+      "sha256": "2335eb96d308e357f580cee781bdad5887bd991d61cded80871d1e25fc83e652"
+    },
+    {
+      "name": "example/nes-player.html",
+      "sha256": "83ed346a60ac562fb911f162fb17d66c45497ca3669634a4e58a09b18f353ab9"
+    },
+    {
+      "name": "example/nes-player.js",
+      "sha256": "d671b7a676f696de0f17ab9ef1e61a2477e07e3ab6a7f320f9169c19c3f197aa"
+    },
+    {
+      "name": "example/rom-loader.js",
+      "sha256": "9f859934c46c0ad12c89efa5f76adea0bc9e2270a0f9416f25f2f76f20784ea8"
+    },
+    {
+      "name": "package.json",
+      "sha256": "9f818ae640924a57dadbc38972bb416d24624fdc0bd877884bd2e5a4be5cdb3c"
+    },
+    {
+      "name": "source/jsnes.js",
+      "sha256": "d658ec7a48dac06d494afab1815c143219fe5886ad4102f5d84450fe7aa2fe68"
+    }
+  ]
+}

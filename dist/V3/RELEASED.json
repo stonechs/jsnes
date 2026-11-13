@@ -1,0 +1,80 @@
+{
+    "version":  "V3",
+    "tag":  "v3",
+    "finalizedAt":  "2026-11-13T09:14:20Z",
+    "baseCommit":  "27db20fe61f3e9e883357f57d0a13ce73f6d6c38",
+    "githubRelease":  "https://github.com/stonechs/jsnes/releases/tag/v3",
+    "artifacts":  [
+                      {
+                          "name":  "jsnes-v3-roadroller-base122.html",
+                          "bytes":  38197,
+                          "sha256":  "1f0210278ab52baaffd7564571cea81defac360e9c916a03810860aa9ff1d294",
+                          "downloadUrl":  "https://github.com/stonechs/jsnes/releases/download/v3/jsnes-v3-roadroller-base122.html"
+                      },
+                      {
+                          "name":  "jsnes-v3-readable.html",
+                          "bytes":  451826,
+                          "sha256":  "5530ca2b00697e3ce885913b2ccae6a896dc68af302309322607f7755fa58e70",
+                          "downloadUrl":  "https://github.com/stonechs/jsnes/releases/download/v3/jsnes-v3-readable.html"
+                      },
+                      {
+                          "name":  "metadata.json",
+                          "bytes":  2102,
+                          "sha256":  "f6af82b617af374a61a6a93309e88de61eefb50610788bb5818522e5aec88fd7",
+                          "downloadUrl":  "https://github.com/stonechs/jsnes/releases/download/v3/metadata.json"
+                      }
+                  ],
+    "releaseFiles":  [
+                         {
+                             "name":  "README.md",
+                             "bytes":  1075,
+                             "sha256":  "dc800159d30837631dfdbe88df1bc32e7b5a48a85bf2c48af4c6787cdca75160"
+                         },
+                         {
+                             "name":  "SHA256SUMS",
+                             "bytes":  268,
+                             "sha256":  "062daf7f0aef236a12050ce4e1adde61d045a1e77940c016372fb7017b230a74"
+                         },
+                         {
+                             "name":  "source/jsnes.js",
+                             "bytes":  429550,
+                             "sha256":  "d658ec7a48dac06d494afab1815c143219fe5886ad4102f5d84450fe7aa2fe68"
+                         }
+                     ],
+    "buildInputs":  [
+                        {
+                            "name":  "example/base122.mjs",
+                            "sha256":  "546f676109037861f968b7982bacecc8d4bf71b001ebd8c9b82b378bbe05412d"
+                        },
+                        {
+                            "name":  "example/build-v3.mjs",
+                            "sha256":  "2335eb96d308e357f580cee781bdad5887bd991d61cded80871d1e25fc83e652"
+                        },
+                        {
+                            "name":  "example/nes-player.html",
+                            "sha256":  "83ed346a60ac562fb911f162fb17d66c45497ca3669634a4e58a09b18f353ab9"
+                        },
+                        {
+                            "name":  "example/nes-player.js",
+                            "sha256":  "d671b7a676f696de0f17ab9ef1e61a2477e07e3ab6a7f320f9169c19c3f197aa"
+                        },
+                        {
+                            "name":  "example/rom-loader.js",
+                            "sha256":  "9f859934c46c0ad12c89efa5f76adea0bc9e2270a0f9416f25f2f76f20784ea8"
+                        },
+                        {
+                            "name":  "package.json",
+                            "sha256":  "9f818ae640924a57dadbc38972bb416d24624fdc0bd877884bd2e5a4be5cdb3c"
+                        },
+                        {
+                            "name":  "source/jsnes.js",
+                            "sha256":  "d658ec7a48dac06d494afab1815c143219fe5886ad4102f5d84450fe7aa2fe68"
+                        }
+                    ],
+    "verification":  {
+                         "base122RoundTrip":  "passed",
+                         "fullPageRoundTrip":  "passed",
+                         "browserRomLoading":  "not run",
+                         "nodeTests":  "not run"
+                     }
+}

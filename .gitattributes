@@ -1,9 +1,12 @@
 # Preserve exact bytes and checksums of finalized releases.
 dist/V1/** -text
 dist/V2/** -text
+dist/V3/** -text
 # Generated payloads and the frozen bundle are inspected through their sources.
 dist/V1/*.html -diff
 dist/V1/*.js -diff
 dist/V1/*.map -diff
 dist/V2/*.html -diff
 dist/V2/source/*.js -diff
+dist/V3/*.html -diff
+dist/V3/source/*.js -diff

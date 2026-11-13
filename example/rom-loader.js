@@ -130,11 +130,40 @@ function readSevenZip(bytes){
   while((tag=r.readByte())!==0){var value=r.take(r.number());if(tag===14)archiveCheck(value.length===1&&!(value[0]&128),'Empty');}
   r.expect(0);archiveCheck(r.pos===r.bytes.length);return unpackFolder(bytes,folder);
 }
+async function readZip(bytes){
+  var view=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength),end=Math.max(0,bytes.length-65557),eocd=-1;
+  for(var i=bytes.length-22;i>=end;i--)if(view.getUint32(i,true)===0x06054b50){eocd=i;break;}
+  archiveCheck(eocd>=0&&eocd+22<=bytes.length,'Fmt');archiveCheck(view.getUint16(eocd+4,true)===0&&view.getUint16(eocd+6,true)===0,'Multi');
+  var entries=view.getUint16(eocd+10,true),size=view.getUint32(eocd+12,true),start=view.getUint32(eocd+16,true);
+  archiveCheck(entries!==0xffff&&size!==0xffffffff&&start!==0xffffffff,'Zip64');archiveCheck(start<=eocd&&size<=eocd-start,'EOF');
+  var pos=start,roms=[];
+  for(var n=0;n<entries;n++){
+    archiveCheck(pos+46<=bytes.length&&view.getUint32(pos,true)===0x02014b50,'Fmt');
+    var flags=view.getUint16(pos+8,true),method=view.getUint16(pos+10,true),packed=view.getUint32(pos+20,true),length=view.getUint32(pos+24,true),nameLength=view.getUint16(pos+28,true),extraLength=view.getUint16(pos+30,true),commentLength=view.getUint16(pos+32,true),local=view.getUint32(pos+42,true);
+    archiveCheck(pos+46+nameLength+extraLength+commentLength<=bytes.length,'EOF');
+    var name=new TextDecoder(flags&0x800?'utf-8':'windows-1252').decode(bytes.subarray(pos+46,pos+46+nameLength));
+    if(/\.nes$/i.test(name)&&!name.endsWith('/'))roms.push({flags,method,packed,length,local,name});
+    pos+=46+nameLength+extraLength+commentLength;
+  }
+  archiveCheck(pos===start+size,'Fmt');archiveCheck(roms.length>0,'Empty');archiveCheck(roms.length===1,'Multi');
+  var rom=roms[0];archiveCheck(!(rom.flags&1),'Encrypted');archiveCheck(rom.length<=MAX_ROM&&rom.packed<=bytes.length,'Size');
+  archiveCheck(rom.local+30<=bytes.length&&view.getUint32(rom.local,true)===0x04034b50,'Fmt');
+  var dataStart=rom.local+30+view.getUint16(rom.local+26,true)+view.getUint16(rom.local+28,true);
+  archiveCheck(dataStart<=bytes.length&&rom.packed<=bytes.length-dataStart,'EOF');
+  var packedBytes=bytes.subarray(dataStart,dataStart+rom.packed),result;
+  if(rom.method===0){archiveCheck(rom.packed===rom.length,'Size');result=packedBytes;}
+  else if(rom.method===8){
+    archiveCheck(typeof DecompressionStream==='function','Deflate');
+    result=new Uint8Array(await new Response(new Blob([packedBytes]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).arrayBuffer());
+  }else archiveCheck(false,'Codec');
+  archiveCheck(result.length===rom.length,'Size');return result;
+}
 async function readGameFile(file){
   var bytes=new Uint8Array(await file.arrayBuffer());archiveCheck(bytes.length<=MAX_ROM*4,'Size');
   if([55,122,188,175,39,28].every((b,i)=>bytes[i]===b))bytes=readSevenZip(bytes);
-  else archiveCheck(!/\.7z$/i.test(file.name));
+  else if(bytes[0]===0x50&&bytes[1]===0x4b&&bytes[2]===0x03&&bytes[3]===0x04)bytes=await readZip(bytes);
+  else archiveCheck(!/\.(?:7z|zip)$/i.test(file.name));
   return bytes.buffer;
 }
 // Adapted from stonechs/jsnes-lite V013 interfaces/archive.js.
-// Supports plain .nes files and single-file LZMA/LZMA2 .7z archives.
+// Supports plain .nes, single-file LZMA/LZMA2 .7z, and single-ROM ZIP archives.

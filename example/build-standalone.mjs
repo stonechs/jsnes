@@ -59,7 +59,7 @@ const metadata = {
   core: `JSNES 2.1.0 from ${path.basename(corePath)}`,
   readable,
   interface: "Adapted from jsnes-lite V013 mobile touch UI",
-  romFormats: [".nes", ".7z (single-file LZMA/LZMA2)"],
+  romFormats: [".nes", ".zip (single-ROM, stored/deflate)", ".7z (single-file LZMA/LZMA2)"],
   externalResources: false,
 };
 fs.writeFileSync(
